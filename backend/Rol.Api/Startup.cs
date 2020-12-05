@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Rol.Api.Data;
 using Rol.Api.Data.Queries;
 
 namespace Rol.Api
@@ -27,6 +29,9 @@ namespace Rol.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<RolDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             services
                 .AddGraphQLServer()

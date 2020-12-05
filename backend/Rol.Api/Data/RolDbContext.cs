@@ -14,5 +14,22 @@ namespace Rol.Api.Data
         }
 
         private DbSet<Member> Members { get; set; }
+        private DbSet<MemberContact> MemberContacts { get; set; }
+        private DbSet<Congregation> Congregations { get; set; }
+        private DbSet<CongregationContact> CongregationContacts { get; set; }
+        private DbSet<Role> Roles { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Member>()
+                .Property(s => s.CreationDate)
+                .HasDefaultValueSql("GETDATE()");
+
+            modelBuilder.Entity<Member>()
+                .Property(s => s.ModificationDate)
+                .HasDefaultValueSql("GETDATE()");
+
+            modelBuilder.Seed();
+        }
     }
 }
