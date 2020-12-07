@@ -6,7 +6,17 @@ import Sidebar from '../sidebar';
 const { Header, Footer, Content } = Layout;
 
 const LayoutApp = (props) => {
-  const { children, breadcrumb } = props;
+  const { children, title, buttons, breadcrumb } = props;
+
+  // Mount action buttons
+  const actions = () => {
+    if( buttons && buttons.length > 0) {
+      return buttons.map((button, index) => <Button key={`button${index}`} onClick={button.action} type="primary">{button.title}</Button>)
+    } else {
+      return []
+    }
+  }
+
   return (
     <LayoutStyled>
       <Header>Header</Header>
@@ -16,17 +26,11 @@ const LayoutApp = (props) => {
         </SiderStyled>
         <Content>
           <PageHeader
-            title="Title"
+            title={title || 'Title'}
             className="site-page-header"
             subTitle="This is a subtitle"
             tags={<Tag color="blue">Running</Tag>}
-            extra={[
-              <Button key="3">Operation</Button>,
-              <Button key="2">Operation</Button>,
-              <Button key="1" type="primary">
-                Primary
-              </Button>,
-            ]}
+            extra={actions()}
             breadcrumb={{ breadcrumb }}
           />
             {children}
