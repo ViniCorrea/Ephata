@@ -1,9 +1,9 @@
 import React from 'react';
 import { Layout, PageHeader, Button, Tag } from 'antd';
-import { LayoutStyled } from './styles';
+import { LayoutStyled, SiderStyled } from './styles';
 import Sidebar from '../sidebar';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 const LayoutApp = (props) => {
   const { children, breadcrumb } = props;
@@ -11,9 +11,9 @@ const LayoutApp = (props) => {
     <LayoutStyled>
       <Header>Header</Header>
       <Layout>
-        <Sider width={256}>
+        <SiderStyled width={256}>
           <Sidebar/>
-        </Sider>
+        </SiderStyled>
         <Content>
           <PageHeader
             title="Title"
