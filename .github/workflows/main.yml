@@ -11,7 +11,7 @@ on:
 
 jobs:
   # This workflow contains a single job called "build"
-  build backend:
+  build_backend:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,7 @@ jobs:
         run: dotnet test --no-build --verbosity normal
         working-directory: backend
         
-  build frontend:
+  build_frontend:
     runs-on: ubuntu-latest
 
     steps:
