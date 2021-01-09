@@ -36,11 +36,11 @@ jobs:
         uses: actions/setup-node@v2.1.4
       - name: Install dependencies
         run: npm install
-        working-directory: frontend
+        working-directory: front
       - name: Run tests
         run: npm test
-        working-directory: frontend
+        working-directory: front
       - name: Build
         run: npm run build
-        working-directory: frontend
+        working-directory: front
         
