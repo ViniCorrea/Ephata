@@ -34,10 +34,13 @@ jobs:
       
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
         working-directory: frontend
-      - run: npm test
+      - name: Run tests
+        run: npm test
         working-directory: frontend
-      - run: npm run build
+      - name: Build
+        run: npm run build
         working-directory: frontend
         
