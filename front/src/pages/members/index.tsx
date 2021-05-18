@@ -1,19 +1,19 @@
-import React from 'react';
-import { Empty, Table } from 'antd';
-import data, { columns, routes } from './data';
-import Layout from '../../components/layout';
+import React from "react";
+import { Empty, Table } from "antd";
+import data, { columns, routes } from "./data";
+import Layout from "../../components/layout";
 
 const MembersPage = () => {
   // Creating action buttons
-  const actionButtons = [
+  const batatinha = [
     {
-      title: 'Adicionar Membro',
+      title: "Adicionar Membro",
       action: () => console.log,
     },
   ];
 
   return (
-    <Layout breadcrum={routes} title='Membros' buttons={actionButtons}>
+    <Layout breadcrumb={routes} title="Membros" buttons={batatinha}>
       {data.length > 0 ? (
         <Table columns={columns} dataSource={data} />
       ) : (
