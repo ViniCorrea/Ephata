@@ -6,7 +6,7 @@ import Sidebar from '../sidebar';
 const { Header, Footer, Content } = Layout;
 
 const LayoutApp = (props) => {
-  const { children, title, buttons, breadcrumb } = props;
+  const { children, title, buttons, routes, subtitle } = props;
 
   // Mount action buttons
   const actions = () => {
@@ -28,10 +28,10 @@ const LayoutApp = (props) => {
           <PageHeader
             title={title || 'Title'}
             className="site-page-header"
-            subTitle="This is a subtitle"
-            tags={<Tag color="blue">Running</Tag>}
+            subTitle={subtitle || 'This is a subtitle'}
+            //tags={<Tag color="blue">Running</Tag>} //Tratar exceções de paginas que não precisam das tags 30/05/2021
             extra={actions()}
-            breadcrumb={{ breadcrumb }}
+            breadcrumb={{ routes }}
           />
             {children}
         </Content>
