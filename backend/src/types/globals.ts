@@ -1,3 +1,5 @@
+import { enable as enableColors } from 'colors';
+
 interface MaskOptions {
   direction: 'left' | 'right';
 }
@@ -87,6 +89,7 @@ export function stringCapitalize(this: string, separator = /\s/) {
 String.prototype.capitalize = stringCapitalize;
 
 export default function overload() {
+  enableColors();
   String.prototype.reverse = stringReverse;
   String.prototype.count = stringCount;
   String.prototype.mask = stringMask;

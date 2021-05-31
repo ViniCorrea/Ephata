@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CivilStatus, Gender } from 'src/types/commons';
-import { formatPhone, isValidPhone } from 'src/utils/phone';
+import { CivilStatus, Gender } from '../../types/commons';
+import { formatPhone, isValidPhone } from '../../utils/phone';
 import { Repository } from 'typeorm';
-import { CreateUserDto } from '@dto/create-user.dto';
-import { UserEntity } from '@entities/user.entity';
-import AppError from '@errors/BaseError';
+import { CreateUserDto } from '../../dto/create-user.dto';
+import { UserEntity } from '../../database/entities/user.entity';
+import AppError from '../../errors/BaseError';
 
 @Injectable()
 export class UsersService {

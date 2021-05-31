@@ -24,5 +24,6 @@
       "@config/*": ["src/config/*"],
       "@errors/*": ["src/errors/*"]
     }
-  }
+  },
+  "exclude": ["migrations/*.ts"]
 }

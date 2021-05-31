@@ -1,5 +1,8 @@
+import overload from '../types/globals';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import entities from 'src/database/entities';
+import entities from '../database/entities';
+
+overload();
 
 export function ormConfig(): TypeOrmModuleOptions {
   const config: TypeOrmModuleOptions = {
@@ -11,6 +14,10 @@ export function ormConfig(): TypeOrmModuleOptions {
     database: process.env.DB_DATABASE ?? 'igreja',
     entities: entities,
     synchronize: process.env.NODE_ENV === 'production',
+    migrations: ['database/migrations/*.js'],
+    cli: {
+      migrationsDir: 'src/database/migrations',
+    },
   };
   console.log('OrmConfig:'.yellow, JSON.stringify(config).dim);
   return config;

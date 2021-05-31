@@ -1,11 +1,14 @@
-import { Gender, CivilStatus } from 'types/commons';
+import { Gender, CivilStatus } from '../../types/commons';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  BeforeInsert,
+  BeforeUpdate,
 } from 'typeorm';
+import bcrypt from 'bcryptjs';
 
 @Entity()
 export class UserEntity {
@@ -18,7 +21,7 @@ export class UserEntity {
   @Column({ nullable: true, unique: true })
   email: string;
 
-  @Column()
+  @Column({ nullable: true })
   address: string;
 
   @Column()
@@ -27,7 +30,7 @@ export class UserEntity {
   @Column({ nullable: true })
   phoneNumber: string;
 
-  @Column('varchar')
+  @Column('int')
   gender: Gender;
 
   @Column('int', { nullable: true })
@@ -41,4 +44,10 @@ export class UserEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  hashSenha() {
+    this.password = bcrypt.hashSync(this.password, 10);
+  }
 }
