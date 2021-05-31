@@ -1,3 +1,3 @@
-import { UserEntity } from './modules/users/user.entity';
+import { UserEntity } from './entities/user.entity';
 
 export default [UserEntity];

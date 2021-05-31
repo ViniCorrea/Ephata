@@ -1,4 +1,4 @@
-import globals from '../types/globals';
+import globals from 'types/globals';
 import { formatPhone, isValidPhone } from './phone';
 
 describe('Phone', () => {

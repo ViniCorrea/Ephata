@@ -12,6 +12,17 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@entities/*": ["src/database/entities/*"],
+      "@modules/*": ["src/modules/*"],
+      "@providers/*": ["src/modules/*"],
+      "@globals": ["src/types/globals.ts"],
+      "types/*": ["src/types/*"],
+      "@dto/*": ["src/dto/*"],
+      "@utils/*": ["src/utils/*"],
+      "@config/*": ["src/config/*"],
+      "@errors/*": ["src/errors/*"]
+    }
   }
 }

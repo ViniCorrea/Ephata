@@ -3,8 +3,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CivilStatus, Gender } from 'src/types/commons';
 import { formatPhone, isValidPhone } from 'src/utils/phone';
 import { Repository } from 'typeorm';
-import { CreateUserDto } from './create-user.dto';
-import { UserEntity } from './user.entity';
+import { CreateUserDto } from '@dto/create-user.dto';
+import { UserEntity } from '@entities/user.entity';
+import AppError from '@errors/BaseError';
 
 @Injectable()
 export class UsersService {
@@ -14,32 +15,44 @@ export class UsersService {
   ) {}
 
   create(createUserDto: CreateUserDto): Promise<UserEntity> {
+    //#region Validação dos campos
     if (
       !createUserDto.birthDate.match(
         /^[0-9]{1,2}\/[0-9]{1,2}\/(?:[0-9]{2}|[0-9]{4})$/i,
       )
     ) {
-      throw new Error('Data de nascimento inválida!');
+      throw new AppError({
+        message: 'Data de nascimento inválida!',
+        status: 500,
+      });
     }
     if (
       !Object.keys(Gender)
         .map((gender) => gender.toLowerCase())
         .includes(createUserDto.gender)
     ) {
-      throw new Error('Gênero inválido!');
+      throw new AppError({
+        message: 'Gênero inválido!',
+        status: 500,
+      });
     }
     if (
       !Object.keys(CivilStatus)
         .map((status) => status.toLowerCase())
         .includes(createUserDto.civilStatus)
     ) {
-      throw new Error('Estado civil inválido!');
+      throw new AppError({
+        message: 'Estado civil inválido!',
+        status: 500,
+      });
     }
     if (createUserDto.phoneNumber && !isValidPhone(createUserDto.phoneNumber)) {
-      throw new Error(
-        `Número de celular "${createUserDto.phoneNumber}" inválido!`,
-      );
+      throw new AppError({
+        message: `Número de celular "${createUserDto.phoneNumber}" inválido!`,
+        status: 500,
+      });
     }
+    //#endregion
 
     const user = new UserEntity();
 

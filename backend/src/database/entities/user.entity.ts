@@ -1,4 +1,4 @@
-import { Gender, CivilStatus } from 'src/types/commons';
+import { Gender, CivilStatus } from 'types/commons';
 import {
   Entity,
   Column,

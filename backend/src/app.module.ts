@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
 import { ModulesModule } from './modules';
-import OrmConfig from './config/ormconfig';
+import OrmConfig from '@config/ormconfig';
 
 @Module({
   imports: [TypeOrmModule.forRoot(OrmConfig), ModulesModule],

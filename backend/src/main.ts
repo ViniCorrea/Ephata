@@ -1,6 +1,8 @@
-import {} from './types/globals';
+import overload from '@globals';
 import { NestFactory } from '@nestjs/core';
 import { enable as enableColors } from 'colors';
+
+overload();
 
 enableColors();
 

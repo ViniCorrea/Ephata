@@ -1,7 +1,7 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { enable as enableColors } from 'colors';
-import measure from 'src/utils/measure';
+import measure from '@utils/measure';
 
 enableColors();
 @Injectable()
