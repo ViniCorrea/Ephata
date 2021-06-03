@@ -1,26 +1,26 @@
-import { Tag, Space } from 'antd';
+import { Tag, Space } from "antd";
 
 const data = [
   {
-    key: '1',
-    name: 'John Brown',
+    key: "1",
+    name: "John Brown",
     age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
+    address: "New York No. 1 Lake Park",
+    tags: ["nice", "developer"],
   },
   {
-    key: '2',
-    name: 'Jim Green',
+    key: "2",
+    name: "Jim Green",
     age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
+    address: "London No. 1 Lake Park",
+    tags: ["loser"],
   },
   {
-    key: '3',
-    name: 'Joe Black',
+    key: "3",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
 ];
 
@@ -28,31 +28,31 @@ export default data;
 
 export const columns = [
   {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
+    title: "Name",
+    dataIndex: "name",
+    key: "name",
     render: (text) => <a>{text}</a>,
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
+    title: "Age",
+    dataIndex: "age",
+    key: "age",
   },
   {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
+    title: "Address",
+    dataIndex: "address",
+    key: "address",
   },
   {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
+    title: "Tags",
+    key: "tags",
+    dataIndex: "tags",
     render: (tags) => (
       <>
         {tags.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
+          let color = tag.length > 5 ? "geekblue" : "green";
+          if (tag === "loser") {
+            color = "volcano";
           }
           return (
             <Tag color={color} key={tag}>
@@ -64,28 +64,27 @@ export const columns = [
     ),
   },
   {
-    title: 'Action',
-    key: 'action',
+    title: "Action",
+    key: "action",
     render: (text, record) => (
-      <Space size='middle'>
+      <Space size="middle">
         <a>Invite {record.name}</a>
         <a>Delete</a>
       </Space>
     ),
   },
 ];
-
 export const routes = [
   {
-    path: 'index',
-    breadcrumbName: 'First-level Menu',
+    path: "index",
+    breadcrumbName: "First-level Menu",
   },
   {
-    path: 'first',
-    breadcrumbName: 'Second-level Menu',
+    path: "first",
+    breadcrumbName: "Second-level Menu",
   },
   {
-    path: 'second',
-    breadcrumbName: 'Third-level Menu',
+    path: "second",
+    breadcrumbName: "Third-level Menu",
   },
 ];
