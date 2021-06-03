@@ -4,9 +4,14 @@ import { Connection } from 'typeorm';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
 import { ModulesModule } from './modules';
 import OrmConfig from './config/ormconfig';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(OrmConfig), ModulesModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRoot(OrmConfig),
+    ModulesModule,
+  ],
 })
 export class AppModule implements NestModule {
   constructor(private connection: Connection) {}

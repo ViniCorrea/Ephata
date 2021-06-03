@@ -7,7 +7,6 @@ overload();
 
 enableColors();
 
-
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const ambiente = (nome = process.env.NODE_ENV || 'development'): string =>

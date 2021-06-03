@@ -17,6 +17,10 @@ $ yarn start:dev
 $ yarn start:prod
 ```
 
+## Running using docker compose
+```bash
+$ docker-compose up
+```
 ## Test
 
 ```bash
