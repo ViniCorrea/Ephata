@@ -5,7 +5,7 @@ import Layout from "../../components/layout";
 
 const MembersPage = () => {
   // Creating action buttons
-  const batatinha = [
+  const buttons = [
     {
       title: "Adicionar Membro",
       action: () => console.log,
@@ -13,7 +13,7 @@ const MembersPage = () => {
   ];
 
   return (
-    <Layout breadcrumb={routes} title="Membros" buttons={batatinha}>
+    <Layout breadcrumb={{ routes: routes }} title="Membros" buttons={buttons}>
       {data.length > 0 ? (
         <Table columns={columns} dataSource={data} />
       ) : (

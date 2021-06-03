@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, PageHeader, Button, Tag } from "antd";
+import { Layout, PageHeader, Button, Tag, BreadcrumbProps } from "antd";
 import { LayoutStyled, LayoutInnerStyled, SiderStyled } from "./styles";
 import Sidebar from "../sidebar";
 
@@ -12,14 +12,11 @@ interface LayoutProps {
     title: string;
     action: () => {};
   }[];
-  routes: {
-    path: string;
-    breadcrumbName: string;
-  }[];
+  breadcrumb: BreadcrumbProps;
 }
 
 const LayoutApp: React.FC<LayoutProps> = (props) => {
-  const { children, title, buttons, routes, subtitle } = props;
+  const { children, title, buttons, breadcrumb, subtitle } = props;
 
   // Mount action buttons
   const actions = () => {
@@ -48,7 +45,7 @@ const LayoutApp: React.FC<LayoutProps> = (props) => {
             subTitle={subtitle || "This is a subtitle"}
             //tags={<Tag color="blue">Running</Tag>} //Tratar exceções de paginas que não precisam das tags 30/05/2021
             extra={actions()}
-            breadcrumb={{ routes }}
+            breadcrumb={breadcrumb}
           />
           {children}
         </Content>

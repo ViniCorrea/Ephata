@@ -74,7 +74,6 @@ export const columns = [
     ),
   },
 ];
-
 export const routes = [
   {
     path: "index",
