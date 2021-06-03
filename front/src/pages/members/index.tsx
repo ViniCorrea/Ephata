@@ -1,14 +1,17 @@
 import React from "react";
+import { useRouter } from "next/router";
 import { Empty, Table } from "antd";
 import data, { columns, routes } from "./data";
 import Layout from "../../components/layout";
 
 const MembersPage = () => {
+  const router = useRouter();
+
   // Creating action buttons
   const buttons = [
     {
       title: "Adicionar Membro",
-      action: () => console.log,
+      action: () => router.push("/members/form"),
     },
   ];
 
