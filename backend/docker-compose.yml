@@ -1,28 +1,43 @@
 version: '3.8'
 services:
   ephata.db:
+    env_file:
+      - .env
     container_name: ephata.db
     image: postgres:13-alpine
     ports:
-      - '35000:5432'
-    environment:
-      PG_DATA: /var/lib/postgresql/data
+      - 35000:5432
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - ephata-network
+
+  ephata.pgadmin:
+    container_name: ephata.pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 16543:80
+    depends_on:
+      - ephata.db
+    networks:
+      - ephata-network
 
   ephata.backend:
     container_name: ephata.backend
+    env_file:
+      - .env
     build: .
     command: sh -c "yarn migrations:run && node dist/main"
     ports:
       - '8080:3000'
-    environment:
-      DB_PORT: 5432
-      DB_HOST: ephata.db
-      NODE_ENV: development
-      PORT: 3000
     depends_on: 
       - ephata.db
+    networks:
+      - ephata-network
 
-volumes:
-  pgdata:
+networks: 
+  ephata-network:
+    driver: bridge
