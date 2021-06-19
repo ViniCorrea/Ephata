@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Form, Button, Upload, Input, Col, Row, Select } from "antd";
-import { routes, options } from "../data";
+import { Form, Button, Upload, Input,  Select, DatePicker } from "antd";
+import { routes } from "../data";
 import Layout from "../../../components/layout";
 import { WrapperForm } from "./styles";
 import ImgCrop from "antd-img-crop";
+import moment from 'moment'
+
 
 const FormPage = () => {
   // Creating action buttons
@@ -31,6 +33,12 @@ const FormPage = () => {
     imgWindow.document.write(image.outerHTML);
   };
 
+
+
+//DatePicker
+
+const dateFormatList = ['DD/MM/YYYY'];
+
   return (
     <Layout
       breadcrumb={{ routes: routes }}
@@ -55,9 +63,9 @@ const FormPage = () => {
                 listType="picture-card"
                 fileList={fileList}
                 onChange={onChange}
-                onPreview={onPreview} //Erro no onPreview | dentro do Upload => //{fileList.length < 5 && '+ Upload'}  //Erro no fileList
+                onPreview={onPreview} /* {fileList.length < 5 && 'Adicionar foto'}  */
               >
-                Adicionar foto
+               Adicionar foto
               </Upload>
             </ImgCrop>
           </Form.Item>
@@ -94,56 +102,103 @@ const FormPage = () => {
           <Form.Item
             label="Congregação"
             name="congregacao"
-            rules={[{ required: true, message: "Selecione a foto!" }]}
-          ></Form.Item>
+            rules={[{ required: true, message: "Selecione a congregação!" }]}
+          >
+          <Select defaultValue="Sede" style={{ width: "12%" }}>
+                <Option value="id1">Rosário da Limeira</Option>
+                <Option value="id2">Vieiras</Option>
+                <Option value="id3">Colety</Option>
+          </Select>
+          </Form.Item>
           <br />
-          <Form.Item
-            label="Data Nascimento"
-            name="datebirth"
-            rules={[{ required: true, message: "Selecione a foto!" }]}
-          ></Form.Item>
-          <br />
+
           <Form.Item
             label="Estado Civil"
             name="estadoCivil"
-            rules={[{ required: true, message: "Selecione a foto!" }]}
-          ></Form.Item>
+            rules={[{ required: true, message: "Informe o estado civil!" }]}
+          >
+          <Select defaultValue="Casado" style={{ width: "12%" }}>
+                <Option value="id1">Solteiro</Option>
+                <Option value="id2">Viúvo</Option>
+                <Option value="id3">Divorciado</Option>
+                <Option value="id3">Separado</Option>
+                <Option value="id3">Amasiado</Option>
+          </Select>
+          </Form.Item>
           <br />
           <Form.Item
             label="Naturalidade"
             name="naturalidade"
-            rules={[{ required: true, message: "Selecione a foto!" }]}
+            rules={[{ required: true, message: "Informe a Naturalidade!!" }]}
           ></Form.Item>
           <br />
           <Form.Item
             label="Documento"
             name="document"
-            rules={[{ required: true, message: "Selecione a foto!" }]}
-          ></Form.Item>
+            rules={[{ required: true, message: "Informe ao menos um documento!" }]}
+          >
+          <Select defaultValue="Tipo Documento" style={{ width: "12%" }}>
+                <Option value="cpf">CPF</Option>
+                <Option value="rg">Identidade</Option>
+          </Select>
+          <Input style={{ width: "20%" }} placeholder="Documento" />
+          </Form.Item>
           <br />
           <Form.Item
             label="Nome do Pai"
             name="fatherName"
-            rules={[{ required: true, message: "Selecione a foto!" }]}
-          ></Form.Item>
+            
+          >
+            <Input style={{ width: "50%" }} placeholder="Nome do pai" />
+          </Form.Item>
           <br />
           <Form.Item
             label="Nome da Mãe"
             name="momName"
-            rules={[{ required: true, message: "Selecione a foto!" }]}
-          ></Form.Item>
+            rules={[{ required: true, message: "Informe o nome da mãe!" }]}
+          >
+            <Input style={{ width: "50%" }} placeholder="Nome da mãe" />
+          </Form.Item>
           <br />
-          <Form.Item
-            label="Data de Batismo"
-            name="dataBatismo"
-            rules={[{ required: true, message: "Selecione a foto!" }]}
-          ></Form.Item>
-          <br />
-          <Form.Item
-            label="Data de Admissão"
-            name="dataAdmissao"
-            rules={[{ required: true, message: "Selecione a foto!" }]}
-          ></Form.Item>
+
+              <Input.Group compact>
+                <Form.Item
+                label="Data Nascimento"
+                name="lblDataNascimento"
+                rules={[{ required: true, message: "Informe a data de nascimento!" }]}
+                >
+                <DatePicker 
+                    name="dataNascimento" 
+                    defaultValue={moment('01/01/2000', dateFormatList[0])} 
+                    format={dateFormatList} 
+                />            
+                </Form.Item>
+        
+                <Form.Item
+                label="Data de Batismo"
+                name="lblDataBatismo"
+                >
+                <DatePicker
+                    name="dataBatismo" 
+                    defaultValue={moment('01/01/2000', dateFormatList[0])} 
+                    format={dateFormatList} 
+                />
+                </Form.Item>
+            
+                <Form.Item
+                label="Data de Admissão"
+                name="lblDataAdmissao"
+                rules={[{ required: true, message: "Informe a data de admissão!" }]}
+                >
+                <DatePicker
+                    name="dataAdmissao" 
+                    defaultValue={moment('01/01/2000', dateFormatList[0])} 
+                    format={dateFormatList} 
+                />
+                </Form.Item>
+    </Input.Group>
+            
+
           <br />
 
           <Form.Item>
