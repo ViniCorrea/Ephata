@@ -97,7 +97,19 @@ const dateFormatList = ['DD/MM/YYYY'];
             label="Cargo"
             name="cargo"
             rules={[{ required: true, message: "Selecione a foto!" }]}
-          ></Form.Item>
+          >
+          <Select defaultValue="Membro" style={{ width: "18%" }}>
+                <Option value="id1">Congregado</Option>
+                <Option value="id2">Auxiliar de Trabalho</Option>
+                <Option value="id3">Diácono</Option>
+                <Option value="id4">Diáconisa</Option>
+                <Option value="id5">Presbítero</Option>
+                <Option value="id6">Presbitera</Option>
+                <Option value="id7">Evangelista</Option>
+                <Option value="id8">Missionária</Option>
+                <Option value="id9">Pastor</Option>
+          </Select>
+          </Form.Item>
           <br />
           <Form.Item
             label="Congregação"
@@ -130,14 +142,16 @@ const dateFormatList = ['DD/MM/YYYY'];
             label="Naturalidade"
             name="naturalidade"
             rules={[{ required: true, message: "Informe a Naturalidade!!" }]}
-          ></Form.Item>
+          >
+            <Input style={{ width: "50%" }} placeholder="Naturalidade" />
+          </Form.Item>
           <br />
           <Form.Item
             label="Documento"
             name="document"
             rules={[{ required: true, message: "Informe ao menos um documento!" }]}
           >
-          <Select defaultValue="Tipo Documento" style={{ width: "12%" }}>
+          <Select defaultValue="Tipo Documento" style={{ width: "15%" }}>
                 <Option value="cpf">CPF</Option>
                 <Option value="rg">Identidade</Option>
           </Select>
