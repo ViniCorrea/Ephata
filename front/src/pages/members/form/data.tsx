@@ -51,5 +51,50 @@ export const maritalStatus = [
     {
       label: "Solteiro",
       value: "single"
+    },
+    {
+        label: "Viúvo",
+        value: "widower"
+    },
+    {
+        label: "Divorciado",
+        value: "divorced"
+    },
+    {
+        label: "Separado",
+        value: "Separate"
+    },
+    {
+        label: "Amasiado",
+        value: "cohabitating "
     }
   ]
+
+  export const church = [
+    {
+      label: "Sede",
+      value: "headOffice"
+    },
+    {
+      label: "Vieiras",
+      value: "vieiras"
+    },
+    {
+        label: "Rosário da Limeira",
+        value: "rasarioDaLimeira"
+    },
+    {
+        label: "Colety",
+        value: "colety"
+    },
+    {
+        label: "Corrego dos Maias",
+        value: "corregoDosMaias"
+    },
+    {
+        label: "Queirozes",
+        value: "queirozes"
+    }
+  ]
+
+
