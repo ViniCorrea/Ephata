@@ -7,7 +7,7 @@ type OptionsProps = {
 };
 
 interface FormSelectProps {
-  label: string;
+  label?: string;
   name: string;
   defaultValue?: string;
   options: OptionsProps[];

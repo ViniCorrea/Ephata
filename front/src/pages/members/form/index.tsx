@@ -15,8 +15,13 @@ import Layout from "../../../components/layout";
 import ImgCrop from "antd-img-crop";
 import FormSelect from "../../../components/form/select";
 import FormDatePicker from "../../../components/form/datepicker";
-import { responsibilityOption, maritalStatus, church } from "./data";
-//import {Input, Select DatePicker} from  '../../../components/form'
+import {
+  responsibilityOption,
+  maritalStatus,
+  church,
+  publicPlace,
+} from "./data";
+//import {Input, Select, DatePicker} from  '../../../components/form'
 //trocar os Input e Select pelo personalizado
 
 const FormPage = () => {
@@ -102,21 +107,27 @@ const FormPage = () => {
               />
             </Col>
           </Row>
-
+          <Row gutter={24}>
           <Form.Item
             label="Endereço"
-            name="endereco"
+            name="address"
             rules={[{ required: true, message: "Informe o endereço!" }]}
           >
             <Input.Group compact>
-              <Select defaultValue="Rua" style={{ width: "10%" }}>
-                <Option value="Avenida">Avenida</Option>
-                <Option value="Quadra">Rua</Option>
-              </Select>
-              <Input style={{ width: "60%" }} placeholder="Endereço" />
-              <Input style={{ width: "10%" }} placeholder="Número" />
+              
+                <Col span={6}>
+                  <FormSelect name="publicPlace" options={publicPlace} />
+                </Col>
+                <Col span={12}>
+                  <Input placeholder="Endereço" />
+                </Col>
+                <Col span={6}>
+                  <Input placeholder="Número" />
+                </Col>
+              
             </Input.Group>
           </Form.Item>
+          </Row>
           <br />
           <Row gutter={24}>
             <Col span={6}>

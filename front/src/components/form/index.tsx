@@ -3,4 +3,4 @@ import Select from './select';
 import DatePicker from './datepicker';
 
 
-export default {Input, Select};
+export default {Input, Select, DatePicker };

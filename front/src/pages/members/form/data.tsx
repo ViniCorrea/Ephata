@@ -97,4 +97,21 @@ export const maritalStatus = [
     }
   ]
 
-
+  export const publicPlace = [
+    {
+      label: "Rua",
+      value: "street"
+    },
+    {
+      label: "Avenida",
+      value: "avenue"
+    },
+    {
+        label: "Praça",
+        value: "square"
+    },
+    {
+        label: "Vila",
+        value: "village"
+    }
+  ]
