@@ -108,29 +108,27 @@ const FormPage = () => {
             </Col>
           </Row>
           <Row gutter={24}>
-          <Form.Item
-            label="Endereço"
-            name="address"
-            rules={[{ required: true, message: "Informe o endereço!" }]}
-          >
-            <Input.Group compact>
-              
+            <Col span={18}>
+              <Row gutter={0}>
                 <Col span={6}>
-                  <FormSelect name="publicPlace" options={publicPlace} />
+                  <FormSelect
+                    label="Endereço"
+                    name="publicPlace"
+                    options={publicPlace}
+                  />
                 </Col>
-                <Col span={12}>
+                <Col span={18}>
                   <Input placeholder="Endereço" />
                 </Col>
-                <Col span={6}>
-                  <Input placeholder="Número" />
-                </Col>
-              
-            </Input.Group>
-          </Form.Item>
+              </Row>
+            </Col>
+            <Col span={6}>
+              <Input placeholder="Número" />
+            </Col>
           </Row>
           <br />
           <Row gutter={24}>
-            <Col span={6}>
+            <Col span={8}>
               <FormSelect
                 label="Igreja"
                 name="church"
@@ -138,7 +136,7 @@ const FormPage = () => {
                 options={church}
               />
             </Col>
-            <Col span={6}>
+            <Col span={8}>
               <FormSelect
                 label="Estado Civil"
                 name="maritalStatus"
@@ -147,7 +145,7 @@ const FormPage = () => {
               />
             </Col>
 
-            <Col span={6}>
+            <Col span={8}>
               <Form.Item
                 label="Naturalidade"
                 name="naturalidade"
@@ -186,13 +184,13 @@ const FormPage = () => {
           </Form.Item>
           <br />
           <Row gutter={24}>
-            <Col span={6}>
+            <Col span={8}>
               <FormDatePicker name="birthDate" label="Data de Nascimento" />
             </Col>
-            <Col span={6}>
+            <Col span={8}>
               <FormDatePicker name="baptismDate" label="Data de Batismo" />
             </Col>
-            <Col span={6}>
+            <Col span={8}>
               <FormDatePicker name="admissionDate" label="Data de Admissão" />
             </Col>
           </Row>
