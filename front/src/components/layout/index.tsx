@@ -8,7 +8,7 @@ const { Header, Footer, Content } = Layout;
 interface LayoutProps {
   title?: string;
   subtitle?: string;
-  buttons: {
+  buttons?: {
     title: string;
     action: () => {};
   }[];
