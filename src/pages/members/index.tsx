@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Alert, Empty, Table } from "antd";
 import { columns, routes } from "../../constants/pages/members";
-import { membersList } from "../../mocks/members";
 import Layout from "../../components/layout";
 
 const MembersPage = () => {
@@ -37,7 +36,7 @@ const MembersPage = () => {
       {error && (
         <Alert message="Error" description={error} type="error" showIcon />
       )}
-      {membersList().length > 0 ? (
+      {data.length > 0 ? (
         <Table columns={columns} dataSource={data} />
       ) : (
         <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
