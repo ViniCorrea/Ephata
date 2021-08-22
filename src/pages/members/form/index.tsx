@@ -10,17 +10,17 @@ import {
   Col,
   Card,
 } from "antd";
-import { routes } from "../data";
+import { routes } from "../../../constants/pages/members";
 import Layout from "../../../components/layout";
 import ImgCrop from "antd-img-crop";
 import FormSelect from "../../../components/form/select";
 import FormDatePicker from "../../../components/form/datepicker";
 import {
-  responsibilityOption,
-  maritalStatus,
-  church,
-  publicPlace,
-} from "./data";
+  RESPOSABILITIES,
+  MARITAL_STATUS,
+  CHURCH,
+  PUBLIC_PLACE,
+} from "../../../constants/selectsOptions";
 //import {Input, Select, DatePicker} from  '../../../components/form'
 //trocar os Input e Select pelo personalizado
 
@@ -103,7 +103,7 @@ const FormPage = () => {
                 label="Cargo"
                 name="responsabilty"
                 defaultValue="member"
-                options={responsibilityOption}
+                options={RESPOSABILITIES}
               />
             </Col>
           </Row>
@@ -114,7 +114,7 @@ const FormPage = () => {
                   <FormSelect
                     label="Endereço"
                     name="publicPlace"
-                    options={publicPlace}
+                    options={PUBLIC_PLACE}
                   />
                 </Col>
                 <Col span={18}>
@@ -133,7 +133,7 @@ const FormPage = () => {
                 label="Igreja"
                 name="church"
                 defaultValue="headOffice"
-                options={church}
+                options={CHURCH}
               />
             </Col>
             <Col span={8}>
@@ -141,7 +141,7 @@ const FormPage = () => {
                 label="Estado Civil"
                 name="maritalStatus"
                 defaultValue="married"
-                options={maritalStatus}
+                options={MARITAL_STATUS}
               />
             </Col>
 
