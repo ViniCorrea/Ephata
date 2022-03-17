@@ -113,3 +113,14 @@ export const PUBLIC_PLACE = [
     value: "village",
   },
 ];
+
+export const TYPE_DOCUMENT = [
+  {
+    label: "CPF",
+    value: "cpf",
+  },
+  {
+    label: "Identidade",
+    value: "rg",
+  }
+]

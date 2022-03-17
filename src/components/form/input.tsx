@@ -3,12 +3,12 @@ import {Form, Input, InputProps } from "antd";
 
 
 type FormInputProps = InputProps& {
-  label: string;
+  label?: string;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
-  label,
   name,
+  label=null,
   ...inputProps
   
 }) => {

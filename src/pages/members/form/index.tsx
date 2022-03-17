@@ -15,11 +15,13 @@ import Layout from "../../../components/layout";
 import ImgCrop from "antd-img-crop";
 import FormSelect from "../../../components/form/select";
 import FormDatePicker from "../../../components/form/datepicker";
+import FormInput from "../../../components/form/input";
 import {
   RESPOSABILITIES,
   MARITAL_STATUS,
   CHURCH,
   PUBLIC_PLACE,
+  TYPE_DOCUMENT
 } from "../../../constants/selectsOptions";
 //import {Input, Select, DatePicker} from  '../../../components/form'
 //trocar os Input e Select pelo personalizado
@@ -88,15 +90,10 @@ const FormPage = () => {
           </Row>
           <Row gutter={24}>
             <Col span={18}>
-              <Form.Item
+              <FormInput
                 label="Nome"
                 name="name"
-                rules={[
-                  { required: true, message: "Informe o nome completo!" },
-                ]}
-              >
-                <Input />
-              </Form.Item>
+              />
             </Col>
             <Col span={6}>
               <FormSelect
@@ -118,15 +115,21 @@ const FormPage = () => {
                   />
                 </Col>
                 <Col span={18}>
-                  <Input placeholder="Endereço" />
+                <FormInput
+                name="address"
+                placeholder="Endereço"
+                  />
                 </Col>
               </Row>
             </Col>
             <Col span={6}>
-              <Input placeholder="Número" />
+            <FormInput
+                name="number"
+                placeholder="Número"
+                  />
             </Col>
           </Row>
-          <br />
+        
           <Row gutter={24}>
             <Col span={8}>
               <FormSelect
@@ -146,43 +149,53 @@ const FormPage = () => {
             </Col>
 
             <Col span={8}>
-              <Form.Item
+              
+            <FormInput
                 label="Naturalidade"
-                name="naturalidade"
-                rules={[
-                  { required: true, message: "Informe a Naturalidade!!" },
-                ]}
-              >
-                <Input placeholder="Naturalidade" />
-              </Form.Item>
+                name="naturalness"
+                placeholder="Naturalidade"
+            />
+
             </Col>
           </Row>
-          <Form.Item
-            label="Documento"
-            name="document"
-            rules={[
-              { required: true, message: "Informe ao menos um documento!" },
-            ]}
-          >
-            <Select defaultValue="Tipo Documento" style={{ width: "15%" }}>
-              <Option value="cpf">CPF</Option>
-              <Option value="rg">Identidade</Option>
-            </Select>
-            <Input style={{ width: "20%" }} placeholder="Documento" />
-          </Form.Item>
-          <br />
-          <Form.Item label="Nome do Pai" name="fatherName">
-            <Input style={{ width: "50%" }} placeholder="Nome do pai" />
-          </Form.Item>
-          <br />
-          <Form.Item
-            label="Nome da Mãe"
-            name="momName"
-            rules={[{ required: true, message: "Informe o nome da mãe!" }]}
-          >
-            <Input style={{ width: "50%" }} placeholder="Nome da mãe" />
-          </Form.Item>
-          <br />
+
+
+              <Row gutter={0}>
+                <Col span={12}>
+                  <FormSelect
+                    label="Tipo de Documento"
+                    name="typeDocument"
+                    options={TYPE_DOCUMENT}
+                  />
+                </Col>
+                <Col span={12}>
+                <FormInput
+                name="document"
+                placeholder="Documento"
+                  />
+                </Col>
+              </Row>
+          
+          <Row gutter={24}>
+            <Col span={24}>
+            <FormInput
+                  label="Nome do Pai"
+                  name="fatherName"
+                  placeholder="Nome do pai"
+              />
+            </Col>
+          </Row>
+          
+          <Row gutter={24}>
+            <Col span={24}>
+            <FormInput
+                  label="Nome do Mãe"
+                  name="motherName"
+                  placeholder="Nome da mãe"
+              />
+            </Col>
+          </Row>
+          
           <Row gutter={24}>
             <Col span={8}>
               <FormDatePicker name="birthDate" label="Data de Nascimento" />
@@ -194,10 +207,10 @@ const FormPage = () => {
               <FormDatePicker name="admissionDate" label="Data de Admissão" />
             </Col>
           </Row>
-          <br />
+          
           <Form.Item>
             <Button type="primary" htmlType="submit">
-              Submit
+              Salvar
             </Button>
           </Form.Item>
         </Form>
